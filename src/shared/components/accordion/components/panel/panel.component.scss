@@ -1,0 +1,31 @@
+@mixin panel($name) {
+  &.#{$name} {
+    .panel-header {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--ion-color-light);
+      // padding-bottom: 15px;
+      color: var(--ion-color-#{$name});
+
+      .title {
+        flex: 1;
+      }
+    }
+
+    .panel-body {
+      // padding: 15px 0;
+    }
+  }
+}
+
+:host {
+  // margin: 20px 0;
+  display: block;
+  @include panel(secondary);
+  @include panel(primary);
+  @include panel(dark);
+  @include panel(light);
+  @include panel(warning);
+  @include panel(medium);
+  @include panel(wite);
+}

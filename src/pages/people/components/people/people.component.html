@@ -1,0 +1,56 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button size="small" autoHide="true"></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{ 'people-component.title' | translate }}
+      </div>
+      <div class="options">
+        <ion-button fill="clear" size="small" color="medium" (click)="openSearch = !openSearch">
+          <ion-icon mode="md" name="search"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+    <app-tab-menu [tabs]="views" (event)="showList($event)"></app-tab-menu>
+    <app-search-bar *ngIf="openSearch" (event)="onSearch($event)"></app-search-bar>
+
+    <div class="wrapper" *ngIf="groupedPeople.length > 0">
+      <div class="content-scroll" #content>
+        <div class="group" *ngFor="let group of groupedPeople">
+          <div class="title" [id]="group.letter">{{ group.letter }}</div>
+          <div class="contact" *ngFor="let contact of group.people; let i = index">
+            <div class="image" [image-loader]="contact.photoURL" (click)="open(contact.uid)"></div>
+            <div class="detail" (click)="open(contact.uid)">
+              <div class="name">{{ contact.displayName }}</div>
+              <div class="city" *ngIf="contact.town">{{ contact.town }}</div>
+              <div class="country" *ngIf="contact.country">{{ contact.country }}</div>
+            </div>
+
+            <div class="more">
+              <ion-button *ngIf="isFriend(contact.uid)" size="small" fill="clear" shape="round" (click)="openMore(contact)">
+                <ion-icon name="more"></ion-icon>
+              </ion-button>
+              <ion-button *ngIf="!isFriend(contact.uid)" class="follow-btn" size="small" shape="round" (click)="manage(contact)">
+                {{ 'people-component.follow' | translate }}
+              </ion-button>
+            </div>
+
+            <a hidden #callNumber href="tel:+{{ contact.mobile || contact.phone }}"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="link-alpha">
+        <li class="alpha-link-item" *ngFor="let item of alpha" (click)="scrollTo(item)">{{ item }}</li>
+      </div>
+    </div>
+    <app-no-data *ngIf="groupedPeople.length === 0"> </app-no-data>
+  </div>
+</ion-content>
+
+<app-spinner *ngIf="loading"></app-spinner>

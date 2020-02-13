@@ -1,0 +1,33 @@
+:host {
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+
+    .social {
+      justify-content: center;
+      display: flex;
+
+      ion-button {
+        display: flex;
+        flex: 1;
+      }
+    }
+
+    .forgot,
+    .terms {
+       text-align: center;
+        margin: 15px 0;
+    }
+
+    .forgot {
+      font-size: 14px;
+    }
+
+    .terms {
+      font-size: 12px;
+    }
+  }
+}

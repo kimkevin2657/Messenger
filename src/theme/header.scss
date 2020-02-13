@@ -1,0 +1,45 @@
+/** configure custom header */
+.content-wrapper {
+  height: 100%;
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 20px 0 10px 20px;
+    border-bottom: 1px solid var(--ion-color-light-shade);
+
+    &.no-border {
+      border-bottom: none;
+    }
+
+    &.has-toolbar {
+      padding: 0 15px 10px;
+      margin-top: -10px;
+    }
+
+    .title,
+    .options {
+      display: flex;
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: 700;
+      white-space: nowrap;
+      text-overflow: clip;
+      overflow: hidden;
+    }
+
+    .options {
+      display: flex;
+      justify-content: flex-end;
+      flex: 1;
+
+      .button {
+      }
+    }
+  }
+  .content-scroll {
+    overflow-y: auto;
+    height: calc(100% - 60px);
+  }
+}

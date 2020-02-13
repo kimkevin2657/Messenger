@@ -1,0 +1,29 @@
+:host {
+  .content-wrapper {
+    .wrapper {
+      display: flex;
+      height: 100%;
+
+      .content-scroll {
+        height: calc(100% - 60px) !important;
+        width: 100%;
+        padding: 0 15px;
+
+        .info {
+          margin: 0;
+          font-size: 12px;
+          color: var(--ion-color-medium-shade);
+        }
+        p {
+          color: var(--ion-color-medium-shade);
+        }
+
+        .text-line-through-background {
+          span {
+            background: var(--ion-color-light);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button fill="clear" size="small" color="medium" (click)="closeModal()">
+      <ion-icon mode="md" src="assets/icons/x.svg"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content>
+  <div class="content-wrapper" *ngIf="event">
+    <div class="header has-toolbar">
+      <div class="title">
+        {{
+          event.id
+            ? ('calendar-event-manage-component.edit-title' | translate)
+            : ('calendar-event-manage-component.add-title' | translate)
+        }}
+      </div>
+    </div>
+
+    <div class="scroll-content">
+      <div class="title-section form-item">
+        <div class="left">
+          <div class="label">{{ 'calendar-event-manage-component.title-label' | translate }}</div>
+          <textarea autosize maxRows="3" placeholder="Enter title here..." [(ngModel)]="event.title"></textarea>
+        </div>
+      </div>
+      <div class="date-section form-item">
+        <div class="left">
+          <div class="label small">{{ 'calendar-event-manage-component.start-date-label' | translate }}</div>
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="event.start">
+          </ion-datetime>
+        </div>
+        <div class="right">
+          <div class="label small">{{ 'calendar-event-manage-component.end-date-label' | translate }}</div>
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="event.end"></ion-datetime>
+        </div>
+      </div>
+      <div class="all-day-section form-item">
+        <ion-label>{{ 'calendar-event-manage-component.all-day-label' | translate }}</ion-label>
+        <ion-toggle></ion-toggle>
+      </div>
+      <div class="time-section form-item">
+        <div class="left">
+          <div class="label small">{{ 'calendar-event-manage-component.start-time-label' | translate }}</div>
+          <ion-datetime displayFormat="HH:mm:ss a" pickerFormat="HH:mm:ss a" [(ngModel)]="event.start"></ion-datetime>
+        </div>
+        <div class="right">
+          <div class="label small">{{ 'calendar-event-manage-component.end-time-label' | translate }}</div>
+          <ion-datetime displayFormat="HH:mm:ss a" pickerFormat="HH:mm:ss a" [(ngModel)]="event.end"></ion-datetime>
+        </div>
+      </div>
+      <div class="remind-section form-item">
+        <ion-label>{{ 'calendar-event-manage-component.remind-me-label' | translate }}</ion-label>
+        <ion-toggle color="secondary" [(ngModel)]="showRemind"></ion-toggle>
+      </div>
+      <div class="remind-detail form-item" [hidden]="!showRemind">
+        <div
+          class="content"
+          *ngFor="let reminder of event.recurrence; let i = index; let first = first; let last = last"
+        >
+          <div class="left">
+            <ion-select [(ngModel)]="event.recurrence[i]" placeholder="Set Reminder">
+              <ion-select-option [value]="time" *ngFor="let time of remindTimes"
+                >{{ getHumanize(time) }}
+              </ion-select-option>
+            </ion-select>
+          </div>
+          <div class="right">
+            <ion-button *ngIf="!last" size="small" fill="outline" color="danger" (click)="removeReminder(i)">
+              <ion-icon name="remove"></ion-icon>
+            </ion-button>
+            <ion-button fill="outline" size="small" color="secondary" (click)="addReminder()">
+              <ion-icon name="add"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </div>
+      <div class="notes-section form-item">
+        <ion-label>{{ 'calendar-event-manage-component.add-notes-label' | translate }}</ion-label>
+        <ion-toggle color="secondary" [(ngModel)]="showNotes"></ion-toggle>
+      </div>
+      <div class="notes-detail form-item" *ngIf="showNotes">
+        <textarea autosize maxRows="3" [(ngModel)]="event.description" placeholder="Enter note"></textarea>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" (click)="save()">
+    {{
+      event.id
+        ? ('calendar-event-manage-component.edit-title' | translate)
+        : ('calendar-event-manage-component.add-title' | translate)
+    }}
+  </ion-button>
+</ion-footer>

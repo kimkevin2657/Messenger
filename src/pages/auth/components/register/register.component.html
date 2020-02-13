@@ -1,0 +1,99 @@
+<ion-content scrollX="false" scrollY="false" class="ion-padding">
+  <div class="content-wrapper center">
+    <!-- title -->
+    <div class="subtitle">{{ 'signup-component.title' | translate }}</div>
+
+    <!-- start form -->
+    <form class="form" #form="ngForm">
+      <form-field fill="true" color="medium">
+        <ion-icon prefix src="assets/icons/user.svg"></ion-icon>
+        <ion-input
+          inputRef
+          name="displayName"
+          placeholder="Display Name"
+          [(ngModel)]="model.displayName"
+          #displayName="ngModel"
+          required
+        >
+        </ion-input>
+        <div errors *ngIf="displayName.touched && displayName.invalid">
+          <span *ngIf="displayName?.errors?.required">{{ 'form-validation-messages.required' | translate }}</span>
+        </div>
+      </form-field>
+
+      <form-field fill="true" color="medium">
+        <ion-icon prefix src="assets/icons/mail.svg"></ion-icon>
+        <ion-input
+          inputRef
+          name="email"
+          placeholder="Email"
+          [(ngModel)]="model.email"
+          #email="ngModel"
+          required
+        ></ion-input>
+        <div errors *ngIf="email.touched && email.invalid">
+          <span *ngIf="email?.errors?.required">{{ 'form-validation-messages.required' | translate }}</span>
+        </div>
+      </form-field>
+
+      <form-field fill="true" color="medium">
+        <ion-icon prefix src="assets/icons/lock.svg"></ion-icon>
+        <ion-input
+          inputRef
+          type="password"
+          name="password"
+          placeholder="Password"
+          [(ngModel)]="model.password"
+          #password="ngModel"
+          (secure)="passwordStrength = $event"
+          required
+        ></ion-input>
+        <small
+          class="pass-strength"
+          suffix
+          [ngStyle]="{ background: 'var(--ion-color-' + passwordStrength + ')' }"
+        ></small>
+        <div errors *ngIf="password.touched && password.invalid">
+          <span *ngIf="password?.errors?.required">{{ 'form-validation-messages.required' | translate }}</span>
+          <span *ngIf="password?.errors?.secure">{{ 'form-validation-messages.password-no-secure' | translate }}</span>
+        </div>
+      </form-field>
+
+      <form-field fill="true" color="medium">
+        <ion-icon prefix src="assets/icons/key.svg"></ion-icon>
+        <ion-input
+          inputRef
+          name="rpassword"
+          type="password"
+          placeholder="Retype Password"
+          [(ngModel)]="model.rpassword"
+          [compare-password]="password"
+          #rpassword="ngModel"
+          required
+        ></ion-input>
+
+        <div errors *ngIf="rpassword.touched && rpassword.invalid">
+          <span *ngIf="rpassword?.errors?.required">{{ 'form-validation-messages.required' | translate }}</span>
+          <span *ngIf="rpassword?.errors?.compareTo">{{
+            'form-validation-messages.password-no-match' | translate
+          }}</span>
+        </div>
+      </form-field>
+    </form>
+    <!-- end form -->
+
+    <!-- start sign up button -->
+    <ion-button class="no-shrink" expand="full" shape="round" (click)="signup()" [btnStatus]="loading" slot="end">
+      {{ 'auth-component.signup-button' | translate }}
+      <ion-icon src="assets/icons/chevron-right.svg"></ion-icon>
+    </ion-button>
+    <!-- end sign up button -->
+
+    <!-- get an account -->
+    <div class="terms">
+      {{ 'auth-component.login-text-1' | translate }}
+      <a (click)="goto(routes.login)" class="strong">{{ 'auth-component.login-button' | translate }}</a>
+    </div>
+    <!-- end get an account -->
+  </div>
+</ion-content>

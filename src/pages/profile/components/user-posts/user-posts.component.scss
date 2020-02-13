@@ -1,0 +1,15 @@
+:host {
+  height: 100%;
+  .wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+  }
+
+  .image {
+    background-color: var(--ion-color-medium);
+    border-radius: 5px;
+    padding: 20px;
+    height: 100px;
+  }
+}

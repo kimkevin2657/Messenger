@@ -1,0 +1,45 @@
+<ion-content scrollX="false" scrollY="false" class="ion-padding">
+  <div class="content-wrapper">
+    <!-- start language selection-->
+    <div class="language" *ngIf="language">
+      <ion-icon name="globe"></ion-icon>
+      <span class="pl5">{{ 'welcome-component.change-language' | translate }}</span>
+      <div class="flag-icon" (click)="openLanguage()">
+        <div class="flag-img" [image-loader]="language.icon"></div>
+        {{ language.text | translate }}
+      </div>
+    </div>
+    <!-- end language selection -->
+
+    <!-- start slides -->
+    <div class="slides-content">
+      <ion-slides (ionSlideDidChange)="slideChanged()">
+        <ion-slide *ngFor="let item of slides">
+          <div class="slide-wrapper">
+            <div class="image" [image-loader]="item.image"></div>
+            <div class="detail">
+              <div class="title">{{ item.title | translate }}</div>
+              <div class="paragraph">{{ item.paragraph | translate }}</div>
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <!-- end slides -->
+
+    <!-- start navigation -->
+    <div class="navigation">
+      <ion-button shape="round" color="primary" (click)="goto(routes.auth)">
+        {{ 'welcome-component.get-started' | translate }}</ion-button
+      >
+      <div class="swiper-bullets">
+        <span
+          class="bullet"
+          *ngFor="let item of slides; let i = index"
+          [ngClass]="{ active: i === currentIndex }"
+        ></span>
+      </div>
+    </div>
+    <!-- end navigation -->
+  </div>
+</ion-content>

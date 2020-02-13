@@ -1,0 +1,37 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button fill="clear" size="small" color="medium" (click)="closeModal()">
+      <ion-icon mode="md" src="assets/icons/x.svg"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{ 'feedback-component.title' | translate }}
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="content-scroll">
+        <p class="info">{{ 'feedback-component.info' | translate }}</p>
+
+        <div class="form-label">{{ 'feedback-component.feedback-label' | translate }}</div>
+        <form-field fill="true" color="medium" class="textarea">
+          <ion-icon prefix src="assets/icons/copy.svg"></ion-icon>
+          <textarea
+            inputRef
+            autosize
+            maxRows="3"
+            placeholder="{{ 'feedback-component.feedback-placeholder' | translate }}"
+            [(ngModel)]="model.comment"
+          ></textarea>
+        </form-field>
+
+        <ion-button expand="full" (click)="save()">{{ 'feedback-component.send-button' | translate }}</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

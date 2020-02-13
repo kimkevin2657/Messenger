@@ -1,0 +1,77 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button size="small" autoHide="true"></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <!-- start header -->
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{ 'messages-component.title' | translate }}
+      </div>
+      <div class="options">
+        <ion-button fill="clear" size="small" color="medium" (click)="openSearch = !openSearch">
+          <ion-icon mode="md" name="search"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" size="small" color="medium" (click)="messagesOptions()">
+          <ion-icon mode="md" name="more"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+    <!-- end header -->
+
+    <app-tab-menu [tabs]="views"></app-tab-menu>
+    <app-search-bar *ngIf="openSearch" (event)="onSearch($event)"></app-search-bar>
+
+    <!-- show messages -->
+    <div class="content-scroll" *ngIf="messages.length > 0">
+      <div class="messages" *ngFor="let item of messages">
+        <!-- selected icon toggle -->
+        <div class="action" *ngIf="getSelection">
+          <ion-icon
+            color="secondary"
+            (click)="item.selected = !item.selected"
+            [src]="item.selected ? 'assets/icons/check-square.svg' : 'assets/icons/square.svg'"
+          ></ion-icon>
+        </div>
+
+        <!-- image of receipeint -->
+        <div
+          class="image"
+          [image-loader]="getSender(item).photoURL"
+          (click)="goto(routes.people, { queryParams: { id: getSender(item).uid } })"
+        ></div>
+
+        <!-- details of chat -->
+        <div class="detail" (click)="openChat(item.id)">
+          <div class="name">{{ getSender(item).displayName }}</div>
+          <div class="msg">{{ getLastMessage(item)?.value || 'messages-component.start-chatting' | translate }}</div>
+        </div>
+
+        <!--  date and actions button -->
+        <div class="date">
+          <span>{{ item?.updatedAt?.toDate() | amTimeAgo }}</span>
+          <ion-button fill="clear" *ngIf="!getSelection" (click)="options(item)" color="medium" size="small">
+            <ion-icon name="more"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+    <app-no-data *ngIf="messages.length === 0"></app-no-data>
+  </div>
+</ion-content>
+
+<!-- footer with buttons when you select more than one item -->
+<ion-footer *ngIf="getSelection">
+  <div class="buttons">
+    <ion-button size="small" (click)="markAsRead()">Mark as Read</ion-button>
+    <ion-button size="small" (click)="archieve()" color="secondary">Archieve</ion-button>
+    <ion-button size="small" (click)="deleteSelected()" color="danger">Delete</ion-button>
+    <ion-button (click)="getSelection = false" color="dark" fill="clear">
+      <ion-icon src="assets/icons/x.svg"></ion-icon>
+    </ion-button>
+  </div>
+</ion-footer>

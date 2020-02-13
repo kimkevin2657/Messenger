@@ -1,0 +1,31 @@
+<div class="search">
+  <app-search-bar (event)="onSearch($event)"></app-search-bar>
+  <ion-button fill="clear" (click)="showMap = !showMap">
+    <ion-icon [src]="showMap ? 'assets/icons/align-justify.svg' : 'assets/icons/map.svg'"></ion-icon>
+  </ion-button>
+  <ion-button fill="clear" (click)="openFilter()">
+    <ion-icon src="assets/icons/filter.svg"></ion-icon>
+  </ion-button>
+</div>
+
+<div #mapElement class="map" [hidden]="!showMap"></div>
+
+<ng-container *ngIf="!showMap">
+  <app-simple-item *ngFor="let item of autocompleteItems">
+    <div class="name">{{ item.name }}</div>
+    <app-rating [rate]="item.rating"></app-rating>
+    <div class="vicinity">{{ item.vicinity }}</div>
+
+    <ng-container suffix>
+      <div class="photo" [image-loader]="item.images && item?.images.length > 0 ? (item?.images)[0] : null"></div>
+      <span class="now-open" *ngIf="item?.opening_hours?.open_now">{{ 'maps-component.open' | translate }}</span>
+      <span class="now-close" *ngIf="!item?.opening_hours?.open_now">{{ 'maps-component.close' | translate }}</span>
+    </ng-container>
+  </app-simple-item>
+
+  <app-no-data></app-no-data>
+</ng-container>
+
+<ion-button expand="block" (click)="findMe()">{{ 'maps-component.locate-me' | translate }}</ion-button> -->
+
+<app-spinner *ngIf="loading"></app-spinner>

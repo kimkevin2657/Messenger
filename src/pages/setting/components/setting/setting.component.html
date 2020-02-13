@@ -1,0 +1,60 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button size="small"
+      autoHide="true"></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollX="false"
+  scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{'setting-component.title' | translate}}
+      </div>
+    </div>
+
+    <div class="wrapper"
+      *ngIf="currentUser">
+      <div class="content-scroll">
+
+        <app-accordion #accordion>
+          <app-panel *ngFor="let settingOption of settingOptions"
+            [open]="settingOption.open"
+            title="{{ settingOption.title }}"
+            color="dark">
+            <app-simple-item *ngFor="let item of settingOption.items"
+              (click)="!item.checkbox ? item.event(setting) : null">
+              <div class="img"
+                prefix
+                [image-loader]="item.icon"></div>
+              <strong>{{ item.text }}</strong>
+              <p>{{item.description}}</p>
+
+              <ion-icon *ngIf="item.checkbox"
+                suffix
+                [src]="item.selected ? 'assets/icons/check-square.svg' : 'assets/icons/square.svg'"
+                color="primary"
+                (click)="item.selected = !item.selected; item.event(item.selected)">
+              </ion-icon>
+            </app-simple-item>
+          </app-panel>
+        </app-accordion>
+
+        <ion-button expand="block"
+          shape="round"
+          (click)="save()">
+          {{'setting-component.save-button' | translate}}
+        </ion-button>
+
+        <ion-button expand="block"
+          shape="round"
+          color="danger"
+          (click)="signOut()">
+          {{'setting-component.logout-button' | translate}}
+        </ion-button>
+
+      </div>
+    </div>
+  </div>
+</ion-content>

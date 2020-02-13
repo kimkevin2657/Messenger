@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+
+  .image {
+    height: 120px;
+    width: 150px;
+    background-size: contain !important;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .description {
+    font-size: 14px;
+    color: var(--ion-color-medium);
+  }
+}

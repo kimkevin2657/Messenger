@@ -1,0 +1,129 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+  /** primary **/
+  --ion-color-primary: #009688;
+  --ion-color-primary-rgb: 0, 150, 136;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #008478;
+  --ion-color-primary-tint: #1aa194;
+
+  /** secondary **/
+  --ion-color-secondary: #1479c9;
+  --ion-color-secondary-rgb: 20, 121, 201;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #126ab1;
+  --ion-color-secondary-tint: #2c86ce;
+
+  /** tertiary **/
+  --ion-color-tertiary: #ff4653;
+  --ion-color-tertiary-rgb: 255, 70, 83;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #e03e49;
+  --ion-color-tertiary-tint: #ff5964;
+
+  /** success **/
+  --ion-color-success: #10dc60;
+  --ion-color-success-rgb: 16, 220, 96;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #0ec254;
+  --ion-color-success-tint: #28e070;
+
+  /** warning **/
+  --ion-color-warning: #e2b90b;
+  --ion-color-warning-rgb: 226, 185, 11;
+  --ion-color-warning-contrast: #ffffff;
+  --ion-color-warning-contrast-rgb: 255, 255, 255;
+  --ion-color-warning-shade: #c7a30a;
+  --ion-color-warning-tint: #e5c023;
+
+  /** danger **/
+  --ion-color-danger: #c91914;
+  --ion-color-danger-rgb: 201, 25, 20;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #b11612;
+  --ion-color-danger-tint: #ce302c;
+
+  /** dark **/
+  --ion-color-dark: #2f353b;
+  --ion-color-dark-rgb: 47, 53, 59;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #292f34;
+  --ion-color-dark-tint: #44494f;
+
+  /** medium **/
+  --ion-color-medium: #97a0a9;
+  --ion-color-medium-rgb: 151, 160, 169;
+  --ion-color-medium-contrast: #2f353b;
+  --ion-color-medium-contrast-rgb: 47, 53, 59;
+  --ion-color-medium-shade: #858d95;
+  --ion-color-medium-tint: #a1aab2;
+
+  /** light **/
+  --ion-color-light: #ffffff;
+  --ion-color-light-rgb: 255, 255, 255;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #e0e0e0;
+  --ion-color-light-tint: #ffffff;
+
+  /** facebook **/
+  --ion-color-facebook: #3b5998;
+  --ion-color-facebook-rgb: 244, 244, 244;
+  --ion-color-facebook-contrast: #fff;
+  --ion-color-facebook-contrast-rgb: 0, 0, 0;
+  --ion-color-facebook-shade: #344e86;
+  --ion-color-facebook-tint: #4f6aa2;
+
+  /** google **/
+  --ion-color-google: #d34836;
+  --ion-color-google-rgb: 244, 244, 244;
+  --ion-color-google-contrast: #fff;
+  --ion-color-google-contrast-rgb: 0, 0, 0;
+  --ion-color-google-shade: #ba3f30;
+  --ion-color-google-tint: #d75a4a;
+
+  --ion-color-twitter: #55acee;
+  --ion-color-twitter-rgb: 85, 172, 238;
+  --ion-color-twitter-contrast: #000000;
+  --ion-color-twitter-contrast-rgb: 0, 0, 0;
+  --ion-color-twitter-shade: #4b97d1;
+  --ion-color-twitter-tint: #66b4f0;
+
+  --ion-color-whatsapp: #075e54;
+  --ion-color-whatsapp-rgb: 7, 94, 84;
+  --ion-color-whatsapp-contrast: #ffffff;
+  --ion-color-whatsapp-contrast-rgb: 255, 255, 255;
+  --ion-color-whatsapp-shade: #06534a;
+  --ion-color-whatsapp-tint: #206e65;
+
+  /** gradient **/
+  --ion-color-gradient: linear-gradient(to right, var(--ion-color-primary) 0%, var(--ion-color-secondary) 100%);
+  --ion-color-gradient-rgb: linear-gradient(
+    to right,
+    var(--ion-color-primary-rgb) 0%,
+    var(--ion-color-secondary-rgb) 100%
+  );
+  --ion-color-gradient-contrast: #ffffff;
+  --ion-color-gradient-contrast-rgb: 255, 255, 255;
+  --ion-color-gradient-shade: linear-gradient(
+    to right,
+    var(--ion-color-primary-shade) 0%,
+    var(--ion-color-secondary-shade) 100%
+  );
+  --ion-color-gradient-tint: linear-gradient(
+    to right,
+    var(--ion-color-primary-tint) 0%,
+    var(--ion-color-secondary-tint) 100%
+  );
+
+  --ion-font-family: 'Titillium Web', sans-serif;
+}

@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button size="small" color="dark" (click)="closeModal(null, routes.messages)">
+        <ion-icon src="assets/icons/arrow-left.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button color="dark" (click)="call()">
+        <ion-icon src="assets/icons/phone.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title
+      ><span>
+        <div class="title-img" [image-loader]="getSender(message)?.photoURL"></div>
+        {{ getSender(message)?.displayName }}
+      </span></ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="content-wrapper" *ngIf="currentUser">
+    <ng-container *ngIf="message && message.messages && message.messages.length">
+      <div
+        [id]="last ? 'last-item' : 'item' + i"
+        *ngFor="let item of message.messages; let i = index; let last = last"
+        (press)="onMessageHold(item)"
+      >
+        <div [ngClass]="item.uid === currentUser.uid ? 'from-me' : 'from-them'">
+          <!-- message image -->
+          <div
+            class="image"
+            (click)="preview(item.images[0])"
+            *ngIf="item.images && item.images.length === 1"
+            [image-loader]="item.images[0]"
+          ></div>
+
+          <!-- message image group -->
+          <div class="image-group" *ngIf="item.images && item.images.length > 1">
+            <div class="image-group-image" (click)="preview(image)" *ngFor="let image of item.images" [image-loader]="image"></div>
+          </div>
+
+          <!-- message content -->
+          <div
+            *ngIf="item.value"
+            class="text"
+            [innerHTML]="item.value.length > 100 && !item.readMore ? (item.value | slice: 0:100) : (item.value | markdown)"
+          >
+            <!-- read more anchor link -->
+            <small>
+              <a *ngIf="item.value && item.value.length > 100" (click)="item.readMore = !item.readMore">
+                {{ 'message-component.read-more' | translate }}
+              </a>
+            </small>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+      </div>
+    </ng-container>
+
+    <app-no-data [config]="noDataconfig" *ngIf="message && message.messages && message.messages.length === 0"> </app-no-data>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="custom-form">
+    <ion-buttons slot="start">
+      <ion-button class="circle" fill="clear" color="primary" (click)="sendPhoto()">
+        <ion-icon src="assets/icons/camera.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <textarea
+      autosize
+      maxrow="4"
+      useImportant="true"
+      name="message"
+      placeholder="{{ 'message-component.placeholder' | translate }}"
+      [(ngModel)]="textMsg"
+    ></textarea>
+
+    <ion-buttons slot="end">
+      <ion-button class="circle" fill="clear" color="primary" (click)="send(textMsg)">
+        <ion-icon src="assets/icons/send.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+<!-- <app-spinner *ngIf="loading"></app-spinner> -->
+
+<!-- required for browser file upload -->
+<input hidden #fileInputButton type="file" (change)="detectFiles($event)" multiple />
+
+<!-- call user with hidden a tag -->
+<a hidden #callNumber href="tel:+{{ getSender(message)?.mobile || getSender(message)?.phone }}"></a>

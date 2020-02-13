@@ -1,0 +1,29 @@
+<ion-content class="ion-padding" scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <ion-button class="mb15" shape="round" (click)="goto(routes.login)"> {{ 'auth-component.login-button' | translate }}</ion-button>
+    <ion-button class="mb15" shape="round" fill="outline" (click)="goto(routes.register)">
+      {{ 'auth-component.signup-button' | translate }}</ion-button
+    >
+
+    <p class="text-line-through-background">
+      <span>{{ 'auth-component.alt-login' | translate }}</span>
+    </p>
+    <div class="social">
+      <ion-button shape="round" color="google" [btnStatus]="gplusLoading" (click)="socialLogin(provider.google)">
+        {{ 'auth-component.google' | translate }}
+      </ion-button>
+      <ion-button shape="round" color="facebook" [btnStatus]="fbLoading" (click)="socialLogin(provider.facebook)">
+        {{ 'auth-component.facebook' | translate }}
+      </ion-button>
+    </div>
+    <div class="forgot mt15" (click)="goto(routes.forgot)">
+      {{ 'auth-component.forgot-text-1' | translate }}
+      <a class="reset">{{ 'auth-component.forgot-text-2' | translate }} </a>
+    </div>
+
+    <div class="terms">
+      {{ 'auth-component.i-read' | translate
+      }}<a (click)="openTermsAndConditions()" class="strong">{{ 'auth-component.tandc' | translate }}</a>
+    </div>
+  </div>
+</ion-content>

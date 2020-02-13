@@ -1,0 +1,44 @@
+<ng-container *ngIf="feed && me">
+  <div class="start">
+    <div class="title" (click)="clicked('detail')">
+      {{ feed.title | slice: 0:50 || 'feed-component.no-post-title' | translate }}
+    </div>
+    <div class="content" (click)="clicked('detail')">
+      {{ feed.content | slice: 0:150 || 'feed-component.no-post-content' | translate }}
+    </div>
+
+    <div class="author" (click)="clicked('profile')">
+      <div class="name">{{ feed.user.displayName }}</div>
+      <div class="publish-date">{{ feed?.createdAt?.toDate() | amTimeAgo }}</div>
+    </div>
+
+    <div class="actions">
+      <ion-button color="medium" fill="clear" size="small" (click)="clicked('like')">
+        <ion-icon [name]="feed.userLiked ? 'heart' : 'heart-empty'" [color]="feed.userLiked ? 'tertiary' : 'medium'">
+        </ion-icon>
+        <small>{{ feed?.likes?.length > 0 ? feed.likes.length : '' }}</small>
+      </ion-button>
+
+      <ion-button color="medium" fill="clear" size="small" (click)="clicked('comment')">
+        <ion-icon name="chatboxes"></ion-icon>
+        <small>{{ feed?.comments?.length ? feed.comments.length : '' }}</small>
+      </ion-button>
+      <ion-button color="medium" fill="clear" size="small" (click)="clicked('share')">
+        <ion-icon name="share-alt"></ion-icon>
+        <small>{{ 'feed-component.share-button' | translate }}</small>
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="end">
+    <div class="image" [image-loader]="feed.images[currentIndex]">
+      <div class="left" *ngIf="feed.images && feed.images.length > 1">
+        <ion-icon mode="ios" name="arrow-up" (click)="back()"></ion-icon>
+      </div>
+      <div class="center" (click)="clicked('detail')"></div>
+      <div class="right" *ngIf="feed.images && feed.images.length > 1">
+        <ion-icon mode="ios" name="arrow-down" (click)="forward()"></ion-icon>
+      </div>
+    </div>
+  </div>
+</ng-container>

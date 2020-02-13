@@ -1,0 +1,354 @@
+{
+  "app-component": {
+    "menu": "Menu"
+  },
+  "page-title": {
+    "profile": "Profile",
+    "dashboard": "Dashboard",
+    "news": "News",
+    "people": "People",
+    "chat": "Chat",
+    "shop": "Shop",
+    "setting": "Setting",
+    "logout": "Logout"
+  },
+  "welcome-component": {
+    "slide-1-title": "Social Starter",
+    "slide-1-paragraph": "Nicely designed views and intuitive social and online shopping experience",
+    "slide-2-title": "Profiles",
+    "slide-2-paragraph": "Check out your profile, uploaded feed/images, events and followers",
+    "slide-3-title": "News & Feed",
+    "slide-3-paragraph": "Upload news and feed to your friends and see your friends posts",
+    "slide-4-title": "Social & People",
+    "slide-4-paragraph": "Find people on the platform and follow, chat and check out their profile and feed",
+    "slide-5-title": "Real Time Chat",
+    "slide-5-paragraph": "Real time two way chat with friends on the platform",
+    "change-language": "Change Language",
+    "get-started": "Get Started",
+    "select-lang": "Select Language",
+    "english": "English",
+    "french": "Francias",
+    "spanish": "Espanyol"
+  },
+  "auth-component": {
+    "alt-login": "or login with ",
+    "login-button": "Login",
+    "signup-button": "Sign Up",
+    "signup-text-1": "Don't have an account?",
+    "signup-text-2": "Sign up",
+    "login-text-1": "Already have an account?",
+    "login-text-2": "Login",
+    "forgot-text-1": "Don't remember your login details? ",
+    "forgot-text-2": "Reset here",
+    "google": "google",
+    "facebook": "facebook",
+    "i-read": "I read and accept the ",
+    "tandc": "Terms and Conditions"
+  },
+  "login-component": {
+    "title": "Login",
+    "email-label": "Email",
+    "password-label": "Password",
+    "remember-label": "Remember Me?",
+    "login-button": "Login",
+    "dont-have-account": "Don't have an account, ",
+    "register": "Sign Up",
+    "email-verified": " Your email has been successfully verified. Continue to login and use this amazing app!!"
+  },
+  "signup-component": {
+    "title": "Create an account to start using this app",
+    "fullname-label": "Display Name",
+    "email-label": "Email",
+    "password-label": "Password",
+    "retype-password-label": "Retype",
+    "signup-button": "Register"
+  },
+  "forgot-component": {
+    "title": "Forgot Password",
+    "subtitle-email": "Enter your user email to get your password sent to it",
+    "subtitle-password": "Enter your new password",
+    "password-reset-info": "A pin will be sent to you email. Enter this pin and a new password to reset",
+    "email-label": "Email",
+    "pin-label": "Pin",
+    "password-label": "Password",
+    "retype-password-label": "Retype",
+    "request-button": "Send Reset Email",
+    "already-have-pin-1": "Already have a pin code?",
+    "already-have-pin-2": "Reset password",
+    "reset-button": "Reset Password",
+    "email-sent-to": "An email will be sent to ",
+    "supply-pin": "Supply pin code",
+    "reset-success": "Your Password has been successfully changed"
+  },
+  "deactivated-account-component": {
+    "title": "Hey There... ",
+    "subtitle": "Welcome back, ",
+    "info": "You deactivated your account so you cannot access the app, good news though, you can always reactivate your account by clicking the button below",
+    "reactivate-button": "Reactivate Account",
+    "reactivated-success-message": "Account Reactivated"
+  },
+  "verify-email-component": {
+    "title": "Verify Email",
+    "subtitle": "Hello, {{name}}",
+    "info": "You must verify your email address. A verification email has been sent to your email account <a href=\"{{email}}\">{{email}}</a>. Please follow instructions to complete verification process",
+    "login-button": "Back",
+    "resend-button": "Resend Verification Email",
+    "verification-email-sent": "Verification Email Sent"
+  },
+  "dashboard-component": {
+    "title": "Dashboard",
+    "charts-tab": "Charts",
+    "schedule-tab": "Schedule",
+    "maps-tab": "Maps"
+  },
+  "maps-component": {
+    "open": "Opened",
+    "close": "Closed",
+    "locate-me": "Locate Me"
+  },
+  "map-filter-component": {
+    "title": "Map Filters",
+    "save-button": "Save",
+    "zoom-label": "Zoom",
+    "radius-label": "Radius",
+    "open-label": "Open Now?",
+    "establishment-label": "Type of Establishment"
+  },
+  "feed-component": {
+    "title": "Timeline",
+    "search-placeholder": "Search...",
+    "share-button": "Share",
+    "edit-button": "Edit",
+    "send-button": "Send",
+    "comments-title": "Comments",
+    "add-title": "Add Post",
+    "no-post-title": "This post has no title set",
+    "no-post-subtitle": "This post has no subtitle set",
+    "no-post-content": "This post has no content set",
+    "no-post-image": "This post has no image set",
+    "minimal": "Minimal",
+    "timeline": "Timeline",
+    "showcase": "Showcase",
+    "modern": "Modern",
+    "share-confirm": "Post has been shared",
+    "more-header": "Feed options",
+    "more-option-open": "Open",
+    "more-option-delete": "Delete"
+  },
+  "feed-detail-component": {
+    "delete-alert-title": "Delete Post",
+    "delete-alert-message": "Are you sure you want to delete this post?",
+    "confirm-delete": "Post has been successfully deleted!",
+    "cannot-delete": "You do not have rights to delete this post",
+    "cannot-edit": "You do not have rights to edit this post",
+    "open-comments": "Open Comments",
+    "like": "Like",
+    "share-button": "Share"
+  },
+  "feed-add-component": {
+    "title-label": "Title",
+    "subtitle-label": "Subtitle",
+    "content-label": "Content",
+    "post-button": "Post",
+    "image-option-header": "Image Upload Options",
+    "image-option-library": "Library",
+    "image-option-camera": "Camera",
+    "image-option-multi": "Multiple Photo Library"
+  },
+  "feed-comment-component": {
+    "title": "Comments",
+    "no-comment": "No comment has been written",
+    "placeholder": "Type message here..."
+  },
+  "people-component": {
+    "title": "People",
+    "title-friends": "Friends",
+    "no-phone-number": "Contact does not have a phone number",
+    "follow": "Follow",
+    "unfollow": "Unfollow",
+    "call": "Call",
+    "chat": "Chat",
+    "open": "Open",
+    "new-friend": "New Friendship Made",
+    "no-friend": " is no longer your friend",
+    "no-people": "No one Found",
+    "no-people-subtitle": "Perhaps you should widen your search"
+  },
+  "chart-component": {
+    "line": "Line Chart",
+    "bar": "Bar Chart",
+    "doughnut": "Doughnut Chart",
+    "pie": "Pie Chart"
+  },
+  "misc": {
+    "no-data": "No Data Found",
+    "no-events": "No Events Upcoming",
+    "no-images": "No Images Data",
+    "no-feed": "No Feed Data",
+    "no-friends": "No Friends Yet",
+    "no-feed-add-friends": "No feed Data, add friends to see their feed",
+    "find-people": "Find People"
+  },
+  "other": {
+    "search-placeholder": "Search...",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "cancel": "Cancel",
+    "agree": "Agree",
+    "something-went-wrong": "Something went wrong",
+    "something-is-missing": "Something is missing",
+    "camera": "Camera",
+    "photo-library": "Library",
+    "library": "Library",
+    "edit-label": "Edit",
+    "open-label": "Open",
+    "delete-label": "Delete",
+    "options": "Options",
+    "save-to-album": "Save to Photo album"
+  },
+  "edit-profile-component": {
+    "title": "Edit Profile",
+    "display-name-label": "Display Name",
+    "status-message-label": "Status Message",
+    "email-label": "Email",
+    "mobile-label": "Mobile",
+    "country-label": "Country",
+    "password-label": "Password",
+    "retype-password-label": "Retype Password",
+    "select-country": "Select Country",
+    "change-profile-image": "Change Profile Image",
+    "update-button": "Update Details"
+  },
+  "change-password-component": {
+    "title": "Change Password",
+    "old-password-label": "Old Password",
+    "new-password-label": "New Password",
+    "retype-password-label": "Retype Password",
+    "change-password": "Change Password"
+  },
+  "form-validation-messages": {
+    "required": "this field is required",
+    "email": "enter a valid email",
+    "password-no-match": "passwords do not match",
+    "password-no-secure": "password is not secure",
+    "form-incomplete": "This data provided is invalid, please check your information and try again"
+  },
+  "setting-component": {
+    "title": "Settings",
+    "save-button": "Save Settings",
+    "logout-button": "Logout",
+    "edit-account": "Edit Account",
+    "delete-account": "Delete Account",
+    "deactivated-account-alert-title": "Deactivate account",
+    "deactivated-account-alert-message": "Are you sure you want to deactivate your account?",
+    "deactivate-account-success-message": "Account Deactivated",
+    "option-general-title": "General",
+    "option-general-1-text": "Hide Welcome",
+    "option-general-1-description": "Tick to hide welcome screen",
+    "option-general-2-text": "Chat Auto Reply",
+    "option-general-2-description": "Stop auto reply on chat",
+    "option-general-3-text": "Language",
+    "option-general-3-description": "Set language used in app",
+    "option-account-title": "Manage Account",
+    "option-account-1-text": "Edit Profile",
+    "option-account-1-description": "Name, Email, Security",
+    "option-account-2-text": "Change Password",
+    "option-account-2-description": "Set new password",
+    "option-account-3-text": "Deactivate Account",
+    "option-account-3-description": "Selecting this will deactivate your account",
+    "option-notification-title": "Notifications",
+    "option-notification-1-text": "Push Notifications",
+    "option-notification-1-description": "Change app notification settings",
+    "option-more-title": "More",
+    "option-more-1-text": "Rate the app",
+    "option-more-1-description": "rate and review us",
+    "option-more-2-text": "Feedback",
+    "option-more-2-description": "Share your thoughts",
+    "option-more-3-text": "Privacy Policy",
+    "option-more-3-description": "Review our policies"
+  },
+  "feedback-component": {
+    "title": "Feedback",
+    "info": "Tell us what you think about the app",
+    "feedback-label": "Feedback",
+    "feedback-placeholder": "How are we doing?",
+    "send-button": "Submit",
+    "success-message": "Your feedback has been sent. Thank you"
+  },
+  "review-component": {
+    "title": "Rate our App",
+    "info": "Rate us and tell us what you think? Are we doing a good job",
+    "comment-label": "Comments",
+    "comment-placeholder": "How are we doing?",
+    "send-button": "Submit",
+    "success-message": "Your feedback has been sent. Thank you"
+  },
+  "privacy-component": {
+    "title": "Privacy Policy"
+  },
+  "terms-and-conditions-component": {
+    "title": "Terms and Conditions"
+  },
+  "notification-setting-component": {
+    "title": "Notification Setting",
+    "info": " Toggle app notifications, restrict views and improve privacy",
+    "app-notifications": "App Notifications",
+    "msg-preview-title": "Show Message Preview",
+    "msg-preview-description": "Some description here",
+    "in-app-notifications-title": "In-app Notifications",
+    "in-app-notifications-description": "Some description here",
+    "in-app-vibration-title": "In-app Vibration",
+    "in-app-vibration-description": "Some description here",
+    "app-banner-title": "Show app banner",
+    "app-banner-description": "Some description here"
+  },
+  "messages-component": {
+    "title": "Messages",
+    "tab-all": "All",
+    "tab-archived": "Archived",
+    "start-chatting": "Start chatting",
+    "delete": "Chat Deleted",
+    "option-header": "Manage Conversation",
+    "show-profile": "Show Profile",
+    "failed-to-send": "Message failed to send",
+    "send-image": "Send Image from",
+    "manage-chat": "Manage Chat",
+    "mark-as-read": "Mark as Read",
+    "archieved": "Archived",
+    "manage-messages": "Manage Messages",
+    "select": "Select",
+    "select-all": "Select All",
+    "delete-all": "Delete All"
+  },
+  "message-component": {
+    "placeholder": "Type message here...",
+    "read-more": "Read More",
+    "no-images-selected": "No Images Selected"
+  },
+  "person-component": {
+    "follow": "Follow"
+  },
+  "calendar-event-list-component": {
+    "title": "Events"
+  },
+  "calendar-event-manage-component": {
+    "add-title": "Add Event",
+    "edit-title": "Edit Event",
+    "title-label": "Title",
+    "start-date-label": "Start Date",
+    "end-date-label": "End Date",
+    "all-day-label": "All Day",
+    "start-time-label": "Start Time",
+    "end-time-label": "End Time",
+    "remind-me-label": "Remind Me",
+    "add-notes-label": "Add Notes"
+  },
+  "social-share-component": {
+    "title": "Social Share"
+  },
+  "lang-select-component": {
+    "title": "Languages",
+    "select": "Select"
+  }
+}

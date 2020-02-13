@@ -1,0 +1,18 @@
+<div class="panel-header"
+  (click)="onClick()"
+  [ngClass]="{ open: isBodyVisible }">
+  <div class="title">{{title}}</div>
+  <ion-icon slot="start"
+    name="arrow-forward"
+    mode="ios"
+    *ngIf="!isBodyVisible"></ion-icon>
+  <ion-icon slot="start"
+    mode="ios"
+    name="arrow-down"
+    *ngIf="isBodyVisible"></ion-icon>
+</div>
+
+<div class="panel-body"
+  [hidden]="!isBodyVisible">
+  <ng-content></ng-content>
+</div>

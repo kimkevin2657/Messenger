@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  border-radius: 6px;
+  box-shadow: 1px 1px 15px 1px rgba(var(--ion-color-medium-rgb), 0.2);
+  padding: 0 10px;
+
+  .prefix,
+  .suffix,
+  .content {
+    display: flex;
+  }
+
+  .prefix {
+    // border-right:
+  }
+
+  .content {
+    flex-direction: column;
+    flex: 1;
+    padding: 10px;
+  }
+}

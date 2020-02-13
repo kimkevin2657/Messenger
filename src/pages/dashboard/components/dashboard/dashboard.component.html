@@ -1,0 +1,22 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button size="small"
+      autoHide="true"></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollY="false"
+  scrollX="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{'dashboard-component.title' | translate}}
+      </div>
+    </div>
+
+    <app-tab-menu [tabs]="views"></app-tab-menu>
+    <div class="content-scroll">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</ion-content>

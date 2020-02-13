@@ -1,0 +1,24 @@
+:host {
+  .content-wrapper {
+    .header {
+      .title {
+        align-items: center;
+
+        small {
+          font-size: 50%;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      height: 100%;
+
+      .content-scroll {
+        height: calc(100% - 100px) !important;
+        width: 100%;
+      }
+    }
+  }
+}

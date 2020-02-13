@@ -1,0 +1,90 @@
+:host {
+  .title-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: contain !important;
+    background-color: var(--ion-color-light-shade);
+    margin-right: 10px;
+    border: 1px solid var(--ion-color-light-shade);
+  }
+  .clear {
+    clear: both;
+  }
+
+  .content-wrapper {
+    height: 100%;
+
+    .from-me,
+    .from-them {
+      position: relative;
+      border-radius: 1em;
+      margin: 10px 0;
+      overflow: hidden;
+
+      .image {
+        width: 200px;
+        height: 200px;
+      }
+
+      .image-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+        grid-gap: 0.5rem;
+        padding: 10px 10px 5px;
+        border-top-left-radius: 1em;
+
+        .image-group-image {
+          height: 100px;
+          width: 100px;
+          border: 1px solid var(--ion-color-medium);
+          border-radius: 1em;
+        }
+      }
+
+      .text {
+        padding: 10px 20px;
+        margin: 0;
+
+        ::ng-deep {
+          p {
+            margin: 0;
+          }
+
+          a {
+            color: var(--ion-color-primary);
+          }
+        }
+      }
+    }
+
+    .from-me {
+      color: var(--ion-color-dark);
+      background: var(--ion-color-light-shade);
+      border-top-right-radius: 0px;
+      float: right;
+    }
+
+    .from-them {
+      background: var(--ion-color-gradient);
+      border-top-left-radius: 0px;
+      color: var(--ion-color-light);
+      float: left;
+    }
+  }
+
+  ion-footer {
+    textarea {
+      padding: 5px 10px;
+      overflow: hidden;
+      height: 40px !important;
+      width: calc(100% - 20px);
+      border: 1px solid var(--ion-color-medium);
+      outline: none;
+      resize: none;
+      margin: 5px 10px 0px;
+      border-radius: 3px;
+    }
+  }
+}

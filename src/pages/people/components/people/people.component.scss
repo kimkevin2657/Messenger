@@ -1,0 +1,106 @@
+:host {
+  .content-wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    .header {
+      .title {
+        align-items: center;
+
+        small {
+          font-size: 50%;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      height: 100%;
+      overflow: hidden;
+      .content-scroll {
+        height: 100% !important;
+        width: 100%;
+        overflow: auto;
+        .group {
+          display: flex;
+          flex-direction: column;
+
+          .title {
+            font-size: 22px;
+            font-weight: 600;
+            padding: 10px 0 5px 30px;
+            text-transform: uppercase;
+          }
+
+          .contact {
+            margin: 5px 20px 5px 0;
+            display: flex;
+            padding: 10px 10px 10px 15px;
+            box-shadow: 1px 1px 12px var(--ion-color-light-shade);
+            align-items: center;
+
+            .image {
+              width: 55px;
+              height: 55px;
+              border-radius: 6px;
+              background-size: cover !important;
+              box-shadow: 1px 1px 12px var(--ion-color-light-shade);
+            }
+
+            .detail {
+              padding: 0 10px 0 15px;
+              display: flex;
+              flex-direction: column;
+              flex: 1;
+
+              .name {
+                font-size: 14px;
+                font-weight: 500;
+                padding: 0 0 4px 0;
+              }
+
+              .job {
+                font-size: 11px;
+                font-weight: 400;
+                color: var(--ion-color-medium-shade);
+                margin-bottom: 2px;
+              }
+
+              .city,
+              .country {
+                font-size: 11px;
+                font-weight: 400;
+                color: var(--ion-color-medium-shade);
+              }
+
+              .country {
+                color: var(--ion-color-primary-shade);
+              }
+            }
+
+            .more {
+              .follow-btn {
+                width: 55px;
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+
+      .link-alpha {
+        display: flex;
+        flex-direction: column;
+        margin-right: 15px;
+        align-items: center;
+        justify-content: center;
+        .alpha-link-item {
+          list-style-type: none;
+          font-size: 11px;
+          margin: 0 0 1px 0;
+        }
+      }
+    }
+  }
+}

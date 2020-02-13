@@ -1,0 +1,57 @@
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <div class="wrapper">
+      <div class="content-scroll" *ngIf="user">
+        <!-- profile image -->
+        <div class="profile-image" [image-loader]="user.photoURL">
+          <!-- show if following -->
+          <ion-fab slot="fixed" *ngIf="isFriend">
+            <ion-fab-button>
+              <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-list side="bottom">
+              <ion-fab-button>
+                <ion-icon (click)="call()" src="assets/icons/phone-call.svg"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button>
+                <ion-icon (click)="chat()" src="assets/icons/message-square.svg"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button>
+                <ion-icon (click)="share()" src="assets/icons/share-2.svg"></ion-icon>
+              </ion-fab-button>
+            </ion-fab-list>
+          </ion-fab>
+
+          <!-- show if not following -->
+          <ion-button *ngIf="!isFriend" class="follow" (click)="manage()">{{ 'person-component.follow' | translate }}</ion-button>
+        </div>
+
+        <!-- profile details -->
+        <div class="profile-detail">
+          <div class="name">{{ user.displayName }}</div>
+
+          <div class="country">{{ user.country }}</div>
+
+          <div class="status">
+            {{
+              user.statusMessage ||
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis maximus ligula, quis luctus neque. Integer eu efficitur urna. Quisque rhoncus non est eu tristique.'
+            }}
+          </div>
+          <div class="email"><ion-icon src="assets/icons/mail.svg"></ion-icon>{{ user.email }}</div>
+          <div class="phone">
+            <ion-icon src="assets/icons/phone.svg"></ion-icon>{{ user.mobile || user.phone || 'misc.no-data' | translate }}
+          </div>
+          <div class="town"><ion-icon src="assets/icons/map-pin.svg"></ion-icon>{{ user.town || 'misc.no-data' | translate }}</div>
+        </div>
+
+        <!-- call user with hidden a tag -->
+        <a hidden #callNumber href="tel:+{{ user.mobile || user.phone }}"></a>
+      </div>
+
+      <ion-button fill="clear" (click)="closeModal()">
+        <ion-icon src="assets/icons/x.svg"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

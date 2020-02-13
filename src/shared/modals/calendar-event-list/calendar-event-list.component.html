@@ -1,0 +1,52 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button fill="clear"
+      size="small"
+      color="medium"
+      (click)="closeModal()">
+      <ion-icon mode="md"
+        src="assets/icons/x.svg"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollY="false"
+  scrollX="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{'calendar-event-list-component.title' | translate}}
+      </div>
+      <div class="options">
+        <ion-button fill="clear"
+          size="small"
+          color="medium"
+          (click)="open(day.data)">
+          <ion-icon mode="md"
+            src="assets/icons/plus.svg"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+    <div class="date-title">{{ day.data.date | date: 'longDate' }}</div>
+    <div class="content-scroll">
+      <app-simple-item *ngFor="let item of events; let i = index"
+        class="event">
+        <ion-icon prefix
+          [name]="!item.isComplete ? 'square-outline': 'checkbox'"
+          [color]="!item.isComplete ? 'dark': 'primary'"
+          (click)="item.isComplete = !item.isComplete; updateAsCompleted(item, i)"></ion-icon>
+        <div class="detail"
+          (click)="open(day.data, item, i)">
+          <div class="title">{{ item.title }}</div>
+          <div class="time">{{item.start | date: 'shortTime'}}
+            {{item.end !== item.start ? (item.end | date: 'shortTime'): ''}}</div>
+        </div>
+
+        <ion-icon suffix
+          (click)="delete(item, i)"
+          src="assets/icons/trash.svg"></ion-icon>
+      </app-simple-item>
+      <app-no-data *ngIf="events.length === 0"> </app-no-data>
+    </div>
+  </div>
+</ion-content>

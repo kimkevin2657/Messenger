@@ -1,0 +1,106 @@
+.ion-color-facebook {
+  --ion-color-base: var(--ion-color-facebook);
+  --ion-color-base-rgb: var(--ion-color-facebook-rgb);
+  --ion-color-contrast: var(--ion-color-facebook-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-facebook-contrast-rgb);
+  --ion-color-shade: var(--ion-color-facebook-shade);
+  --ion-color-tint: var(--ion-color-facebook-tint);
+}
+
+.ion-color-google {
+  --ion-color-base: var(--ion-color-google);
+  --ion-color-base-rgb: var(--ion-color-google-rgb);
+  --ion-color-contrast: var(--ion-color-google-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-google-contrast-rgb);
+  --ion-color-shade: var(--ion-color-google-shade);
+  --ion-color-tint: var(--ion-color-google-tint);
+}
+
+.ion-color-twitter {
+  --ion-color-base: var(--ion-color-twitter);
+  --ion-color-base-rgb: var(--ion-color-twitter-rgb);
+  --ion-color-contrast: var(--ion-color-twitter-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-twitter-contrast-rgb);
+  --ion-color-shade: var(--ion-color-twitter-shade);
+  --ion-color-tint: var(--ion-color-twitter-tint);
+}
+
+.ion-color-whatsapp {
+  --ion-color-base: var(--ion-color-whatsapp);
+  --ion-color-base-rgb: var(--ion-color-whatsapp-rgb);
+  --ion-color-contrast: var(--ion-color-whatsapp-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-whatsapp-contrast-rgb);
+  --ion-color-shade: var(--ion-color-whatsapp-shade);
+  --ion-color-tint: var(--ion-color-whatsapp-tint);
+}
+
+.ion-color-gradient {
+  --ion-color-base: var(--ion-color-gradient);
+  --ion-color-base-rgb: var(--ion-color-gradient-rgb);
+  --ion-color-contrast: var(--ion-color-gradient-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-gradient-contrast-rgb);
+  --ion-color-shade: var(--ion-color-gradient-shade);
+  --ion-color-tint: var(--ion-color-gradient-tint);
+}
+
+ion-button {
+  --border-radius: 3px;
+  /** full size button shrinks on some pages using flexbox when keyboard is opened.
+    * to stop this add no shrink class to button
+    */
+  &.no-shrink {
+    flex-shrink: 0;
+  }
+}
+
+.text-line-through-background {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+
+  &:before {
+    border-top: 0.5px solid var(--ion-color-light-shade);
+    content: '';
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 95%;
+    z-index: -1;
+  }
+
+  span {
+    background: var(--ion-color-light);
+    padding: 0 15px;
+  }
+}
+
+ion-header {
+  ion-toolbar {
+    ion-title {
+      span {
+        display: flex;
+        align-items: center;
+
+        .logo {
+          width: 30px;
+          height: 30px;
+        }
+
+        span {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+/**used by modals to make background transparent */
+.custom-modal {
+  --background: transparent;
+  ion-content {
+    --background: transparent;
+  }
+}

@@ -1,0 +1,36 @@
+ion-menu {
+  --width: 100px;
+  ion-list {
+    padding: 0 !important;
+  }
+}
+
+.menu {
+  text-align: center;
+  height: 100%;
+
+  .item {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    ion-icon {
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 2.5rem;
+      color: var(--ion-color-light);
+    }
+
+    .image {
+      display: table-cell;
+      vertical-align: middle;
+      border: 3px solid var(--ion-color-light);
+      border-radius: 100%;
+      width: 60px;
+      height: 60px;
+      margin: 0% auto;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+:host {
+  .content-wrapper {
+    .wrapper {
+      display: flex;
+      height: 100%;
+
+      .content-scroll {
+        height: calc(100% - 44px) !important;
+        width: 100%;
+        padding: 0 15px;
+
+        .info {
+          font-size: 12px;
+          color: var(--ion-color-medium-shade);
+        }
+        form-field {
+          &.textarea {
+            ::ng-deep {
+              .input-wrapper {
+                height: auto;
+
+                .input {
+                  textarea {
+                    background: none;
+                    resize: none;
+                    border: none;
+                    width: 100%;
+                    outline: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

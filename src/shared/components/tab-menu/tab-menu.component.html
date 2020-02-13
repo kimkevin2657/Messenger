@@ -1,0 +1,11 @@
+<ion-row class="tab-menu">
+  <ion-col
+    class="ion-text-center"
+    *ngFor="let view of tabs; let i = index"
+    [ngClass]="{ active: view.active }"
+    (click)="onViewSelect(i); view.event ? view.event() : null"
+  >
+    <ion-icon *ngIf="view.icon" color="medium" [name]="view.icon"></ion-icon>
+    <p *ngIf="view.name" class="ion-no-margin" [innerText]="view.name | translate"></p>
+  </ion-col>
+</ion-row>

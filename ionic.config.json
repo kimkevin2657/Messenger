@@ -1,0 +1,7 @@
+{
+  "name": "complete-fire-starter",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,42 @@
+:host {
+  .content-wrapper {
+    .wrapper {
+      display: flex;
+      height: 100%;
+
+      .content-scroll {
+        height: calc(100% - 90px) !important;
+        width: 100%;
+        padding: 0 15px;
+
+        app-simple-item {
+          align-items: center;
+          margin: 10px 0;
+
+          .img {
+            width: 20px;
+            max-width: 20px;
+            margin: 0 10px;
+            height: 20px;
+          }
+
+          ion-icon {
+            padding: 0 10px;
+          }
+
+          strong {
+            font-size: 14px;
+          }
+          p {
+            margin: 0;
+            font-size: 11px;
+            color: var(--ion-color-medium);
+          }
+        }
+      }
+      ion-button {
+        margin: 10px 0;
+      }
+    }
+  }
+}

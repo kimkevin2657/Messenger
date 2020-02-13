@@ -1,0 +1,69 @@
+:host {
+  ion-content {
+    --background: transparent;
+
+    .content-wrapper {
+      width: 80%;
+      height: 80%;
+      margin: 20% auto;
+      background: var(--ion-color-light);
+      border-radius: 12px;
+      box-shadow: 1px 2px 12px var(--ion-color-dark);
+      overflow: hidden;
+      .wrapper {
+        height: 100%;
+        .content-scroll {
+          height: calc(100% - 45px);
+
+          .profile-image {
+            height: 260px;
+            width: 100%;
+            margin: auto;
+            position: relative;
+            ion-fab {
+              position: absolute;
+              right: 10px;
+              bottom: -28px;
+            }
+            .follow {
+              position: absolute;
+              right: 10px;
+              bottom: -20px;
+            }
+          }
+
+          .profile-detail {
+            display: flex;
+            flex-direction: column;
+            background: var(--ion-color-light);
+            padding: 20px;
+            .name {
+              font-size: 20px;
+              font-weight: 600;
+            }
+            .status {
+              color: var(--ion-color-medium);
+              font-size: 12px;
+              margin: 5px 0;
+              padding: 0 0 15px;
+              border-bottom: 1px solid rgba(var(--ion-color-medium-rgb), 0.4);
+            }
+            .email,
+            .phone,
+            .town {
+              font-size: 13px;
+              margin: 2px 0;
+              ion-icon {
+                margin-right: 10px;
+              }
+            }
+            .country {
+              color: var(--ion-color-medium);
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

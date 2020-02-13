@@ -1,0 +1,51 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button size="small" autoHide="true"></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{ 'profile-component.title' | translate }}
+      </div>
+      <div class="options">
+        <ion-button fill="clear" size="small" color="medium" (click)="more()">
+          <ion-icon mode="md" name="more"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <ng-container *ngIf="user">
+      <div class="profile-header">
+        <div class="image" [image-loader]="user.photoURL" preview="true"></div>
+        <div class="detail">
+          <div class="title">{{ user.displayName }}</div>
+          <div class="status-msg">{{ (user.statusMessage | slice: 0:50) || 'I am available on full starter app' }}</div>
+          <div class="country" *ngIf="user.country">{{ user.country }}</div>
+        </div>
+      </div>
+      <div class="profile-menu">
+        <div class="menu-item" [ngClass]="{ active: selectedView === item.id }" *ngFor="let item of views" (click)="selectedView = item.id">
+          <strong>{{ item.value }}</strong>
+          <span>{{ item.name }}</span>
+        </div>
+        <ion-button size="small" shape="round">Logout</ion-button>
+      </div>
+      <div class="profile-content">
+        <ng-container [ngSwitch]="selectedView">
+          <ng-container *ngSwitchCase="1">
+            <app-user-people></app-user-people>
+          </ng-container>
+          <ng-container *ngSwitchCase="2">
+            <app-user-people following="true"></app-user-people>
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <app-user-posts></app-user-posts>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</ion-content>

@@ -1,0 +1,80 @@
+<ion-content scrollX="false"
+  scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border">
+      <div class="title">
+        {{'map-filter-component.title' | translate}}
+      </div>
+      <div class="options">
+
+        <ion-button fill="clear"
+          size="small"
+          color="medium"
+          (click)="closeModal()">
+          <ion-icon mode="md"
+            src="assets/icons/x.svg"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="content-scroll">
+        <ion-item>
+          <ion-label>{{'map-filter-component.radius-label'| translate}}</ion-label>
+          <ion-range min="0"
+            max="5000"
+            step="100"
+            value="{{filter.radius}}"
+            color="secondary"
+            [(ngModel)]="filter.radius">
+            <ion-label slot="start">{{filter.radius}}</ion-label>
+            <ion-label slot="end">5000</ion-label>
+          </ion-range>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>{{'map-filter-component.zoom-label'| translate}}</ion-label>
+          <ion-range min="0"
+            max="20"
+            step="1"
+            value="{{filter.zoom}}"
+            color="secondary"
+            [(ngModel)]="filter.zoom">
+            <ion-label slot="start">{{filter.zoom}}</ion-label>
+            <ion-label slot="end">20</ion-label>
+          </ion-range>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>{{'map-filter-component.open-label'| translate}}</ion-label>
+          <ion-toggle [(ngModel)]="filter.openNow"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>{{'map-filter-component.establishment-label'| translate}}</ion-label>
+          <ion-select inputRef
+            name="type"
+            [interfaceOptions]="typeSelectOptions"
+            [(ngModel)]="filter.type"
+            required>
+            <ion-select-option [value]="item"
+              *ngFor="let item of typeSelectOptions.data">
+              {{item}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-button expand="block"
+          color="primary"
+          shape="round"
+          (click)="save()">
+          {{'map-filter-component.save-button'| translate}}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<app-spinner *ngIf="loading">
+</app-spinner>

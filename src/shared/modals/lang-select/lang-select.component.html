@@ -1,0 +1,35 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button fill="clear" size="small" color="medium" (click)="closeModal()">
+      <ion-icon mode="md" src="assets/icons/x.svg"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{ 'lang-select-component.title' | translate }}
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="content-scroll">
+        <app-simple-item *ngFor="let item of countries">
+          <div class="img" prefix image-loader="assets/images/flags/{{ item.alpha2Code.toLowerCase() }}.svg"></div>
+          <strong>{{ item.name }}</strong>
+          <p>{{ item.subregion }}</p>
+
+          <ion-button
+            size="small"
+            suffix
+            *ngIf="item.alpha2Code.toLowerCase() !== setting.language"
+            (click)="select(item.alpha2Code.toLowerCase())"
+            >{{ 'lang-select-component.select' | translate }}</ion-button
+          >
+        </app-simple-item>
+      </div>
+    </div>
+  </div>
+</ion-content>

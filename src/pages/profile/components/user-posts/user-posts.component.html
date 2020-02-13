@@ -1,0 +1,5 @@
+<div class="wrapper">
+  <div class="image" [image-loader]="post" *ngFor="let post of posts" (click)="open(post)"></div>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
+<app-no-data *ngIf="posts.length === 0"></app-no-data>

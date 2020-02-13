@@ -1,0 +1,3 @@
+<div class="image" *ngIf="config?.image?.show" [image-loader]="config?.image?.url"></div>
+<div class="title">{{ config?.content?.title | translate }}</div>
+<div class="description">{{ config?.content?.description | translate }}</div>

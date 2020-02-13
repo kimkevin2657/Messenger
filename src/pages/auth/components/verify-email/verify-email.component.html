@@ -1,0 +1,34 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button fill="clear" size="small" color="medium" (click)="back()">
+      <ion-icon mode="md" src="assets/icons/x.svg"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{ 'verify-email-component.title' | translate }}
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="content-scroll" *ngIf="currentUser">
+        <div class="user-wrapper">
+          <p class="subtitle" [translate]="'verify-email-component.subtitle'" [translateParams]="{ name: currentUser.displayName }"></p>
+        </div>
+        <p class="info" [innerHTML]="'verify-email-component.info' | translate: { email: currentUser.email }"></p>
+
+        <ion-button class="resend-btn" expand="block" shape="round" color="secondary" (click)="resendVerificationEmail()">
+          {{ 'verify-email-component.resend-button' | translate }}
+        </ion-button>
+
+        <ion-button expand="block" shape="round" color="danger" (click)="back()">
+          {{ 'verify-email-component.login-button' | translate }}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

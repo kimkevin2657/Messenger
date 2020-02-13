@@ -1,0 +1,64 @@
+:host {
+  .content-wrapper {
+    .profile-header {
+      display: flex;
+      padding: 10px 20px;
+      .image {
+        width: 80px;
+        height: 80px;
+        border-radius: 4px;
+        box-shadow: 1px 2px 12px 2px var(--ion-color-light-shade);
+      }
+      .detail {
+        margin-left: 15px;
+        flex: 1;
+        .title {
+          font-size: 16px;
+          margin: 5px 0;
+        }
+        .status-msg,
+        .country {
+          font-size: 13px;
+          color: var(--ion-color-medium);
+          margin: 5px 0;
+        }
+      }
+    }
+    .profile-menu {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      margin: 5px 0;
+      border-top: 1px solid var(--ion-color-light-shade);
+      border-bottom: 1px solid var(--ion-color-light-shade);
+      .menu-item {
+        display: flex;
+        flex-direction: column;
+        &.active {
+          color: var(--ion-color-primary);
+          span {
+            color: var(--ion-color-primary);
+          }
+        }
+        strong {
+          font-size: 16px;
+        }
+        span {
+          color: var(--ion-color-medium);
+          font-size: 12px;
+        }
+      }
+    }
+    .profile-content {
+      padding: 5px 15px;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      height: calc(60% - 0px);
+      .title {
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+}

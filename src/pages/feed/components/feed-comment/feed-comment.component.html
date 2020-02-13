@@ -1,0 +1,68 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-buttons>
+      <ion-button (click)="closeModal()">
+        <ion-icon src="assets/icons/x.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollX="false" scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{ 'feed-comment-component.title' | translate }}
+      </div>
+      <div class="options">
+        <ion-button fill="clear" size="small" color="medium" (click)="openSearch = !openSearch">
+          <ion-icon mode="md" name="search"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" size="small" color="medium">
+          <ion-icon mode="md" name="more"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <app-search-bar *ngIf="openSearch" (event)="onSearch($event)"></app-search-bar>
+
+    <div class="wrapper">
+      <div class="content-scroll" #content>
+        <ng-container *ngIf="comments.length > 0">
+          <div class="comment" *ngFor="let item of comments">
+            <div class="image" [image-loader]="item?.user?.photoURL"></div>
+            <div class="detail">
+              <div class="user">
+                <div class="name">{{ item?.user?.displayName }}</div>
+                <div class="date">{{ item.updatedAt?.toDate() | amTimeAgo }}</div>
+              </div>
+              <div class="message">{{ item.text || 'feed-comment-component.no-comment' | translate }}</div>
+            </div>
+            <div class="options" *ngIf="item?.user?.uid === user.uid">
+              <ion-icon color="medium" name="more" (click)="openOptions(item)"></ion-icon>
+            </div>
+          </div>
+        </ng-container>
+
+        <app-no-data *ngIf="comments.length === 0"></app-no-data>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="custom-form">
+    <textarea
+      elastic-textarea="50"
+      name="message"
+      placeholder="{{ 'feed-comment-component.placeholder' | translate }}"
+      [(ngModel)]="commentMsg"
+    ></textarea>
+
+    <ion-buttons slot="end">
+      <ion-button class="circle" fill="clear" color="primary" (click)="save(commentMsg)">
+        <ion-icon src="assets/icons/send.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

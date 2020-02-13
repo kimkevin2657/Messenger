@@ -1,0 +1,28 @@
+.tab-menu {
+  border-bottom: 1px solid var(--ion-color-light-shade);
+  padding: 5px 0 10px 0;
+  transition: all 200ms ease-in-out;
+
+  ion-col {
+    padding: 0;
+    text-transform: capitalize;
+    font-size: 13px;
+
+    p {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 90%;
+    }
+
+    &.active {
+
+      ion-icon,
+      p {
+        color: var(--ion-color-primary);
+        font-weight: 400 !important;
+
+      }
+    }
+  }
+}

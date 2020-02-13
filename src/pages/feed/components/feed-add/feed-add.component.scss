@@ -1,0 +1,129 @@
+:host {
+  ion-content {
+    --background: transparent;
+
+    .content-wrapper {
+      width: 95%;
+      height: auto;
+      margin: 20% auto;
+      background: var(--ion-color-light);
+      border-radius: 12px;
+      box-shadow: 1px 2px 12px var(--ion-color-dark);
+
+      .wrapper {
+        padding: 0 20px 15px;
+      }
+    }
+  }
+
+  .author {
+    display: flex;
+    padding: 20px;
+
+    .image {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+    }
+
+    .details {
+      padding: 0 10px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .name {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--ion-color-primary);
+      }
+
+      .publish-date {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--ion-color-medium-shade);
+      }
+    }
+  }
+
+  .input-wrapper {
+    border-bottom: 0.5px solid var(--ion-color-light-shade);
+
+    .row {
+      align-items: flex-start;
+
+      .prefix {
+        color: var(--ion-color-medium);
+        width: unset;
+        margin-top: 3px;
+      }
+    }
+
+    &:last-of-type {
+      border: 0 !important;
+    }
+
+    textarea {
+      width: 100%;
+      resize: none;
+      outline: none;
+      border: none;
+    }
+  }
+
+  .image-content {
+    display: flex;
+    height: 80px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 10px 0;
+    .images {
+      display: flex;
+
+      .image-item {
+        width: 75px;
+        height: 99%;
+        margin: 1px;
+        height: 75px;
+        margin: 1px 2px;
+        border-radius: 6px;
+        border: 1px solid var(--ion-color-light-shade);
+      }
+      .delete-btn {
+        width: 75px;
+        height: 99%;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+
+    small {
+      padding-left: 5px;
+    }
+
+    .start {
+      display: flex;
+      flex: 1;
+      margin-left: -15px;
+
+      button {
+        background: transparent;
+        outline: none;
+        padding: 10px 0;
+        margin: 0 10px;
+
+        .lnr {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .end {
+      display: flex;
+    }
+  }
+}

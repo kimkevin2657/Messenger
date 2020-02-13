@@ -1,0 +1,77 @@
+<ion-content>
+  <div class="content-wrapper" *ngIf="feed && user">
+    <div class="wrapper no-padding">
+      <!-- image -->
+      <div class="image-content" *ngIf="feed.images && feed.images.length === 0">
+        <div class="menu-toolbar">
+          <ion-icon name="close" color="light" (click)="closeModal()"></ion-icon>
+        </div>
+        <div class="image-nav-wrapper">
+          <div class="center">
+            <img src="assets/images/other/no-data.png" alt="empty" width="200px" />
+            <p>{{ 'feed-component.no-post-image' | translate }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="image-content" *ngIf="feed.images && feed.images.length > 0" [image-loader]="feed.images[currentIndex]">
+        <div class="menu-toolbar">
+          <ion-icon name="close" color="light" (click)="closeModal()"></ion-icon>
+        </div>
+        <div class="image-nav-wrapper">
+          <div class="left" *ngIf="feed.images && feed.images.length > 1">
+            <ion-icon mode="ios" name="arrow-back" (click)="back()"></ion-icon>
+          </div>
+          <div class="center"></div>
+          <div class="right" *ngIf="feed.images && feed.images.length > 1">
+            <ion-icon mode="ios" name="arrow-forward" (click)="forward()"></ion-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- content -->
+      <div class="content">
+        <div class="title">{{ feed.title || 'feed-component.no-post-title' | translate }}</div>
+        <div class="subtitle">{{ feed.subtitle || 'feed-component.no-post-subtitle' | translate }}</div>
+
+        <div class="author">
+          <div class="image" [image-loader]="feed.user.photoURL"></div>
+          <div class="details">
+            <div class="name">{{ feed.user.displayName }}</div>
+            <div class="publish-date">{{ feed?.createdAt?.toDate() | amTimeAgo }}</div>
+          </div>
+        </div>
+
+        <div class="paragraph">{{ feed.content || 'feed-component.no-post-image' | translate }}</div>
+      </div>
+
+      <!-- actions -->
+      <div class="actions">
+        <div class="start">
+          <ion-button color="medium" fill="clear" (click)="like()">
+            <ion-icon [name]="feed.userLiked ? 'heart' : 'heart-empty'" [color]="feed.userLiked ? 'tertiary' : 'medium'"> </ion-icon>
+            <small>{{ feed.likes.length > 0 ? feed.likes.length : '' }}</small>
+          </ion-button>
+
+          <ion-button color="medium" fill="clear" (click)="comment(feed)">
+            <ion-icon name="chatboxes"></ion-icon>
+            <small>{{ feed.comments.length ? feed.comments.length : '' }}</small>
+          </ion-button>
+          <ion-button color="medium" fill="clear" (click)="share(feed)">
+            <ion-icon name="share-alt"></ion-icon>
+            <small>{{ 'feed-component.share-button' | translate }}</small>
+          </ion-button>
+        </div>
+        <div class="end" *ngIf="feed.uid === user.uid">
+          <ion-button color="secondary" fill="clear" (click)="edit(feed)">
+            <ion-icon name="create"></ion-icon>
+            <small>{{ 'feed-component.edit-button' | translate }}</small>
+          </ion-button>
+
+          <ion-button color="danger" fill="clear" (click)="delete(feed)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

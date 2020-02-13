@@ -1,0 +1,85 @@
+<ion-content>
+  <div class="content-wrapper" *ngIf="currentUser && feed">
+    <div class="author">
+      <div class="image" [image-loader]="currentUser.photoURL"></div>
+      <div class="details">
+        <div class="name">{{ currentUser.displayName }}</div>
+        <div class="publish-date">{{ currentUser.email }}</div>
+      </div>
+      <div class="option">
+        <ion-button fill="clear" color="medium" size="small" (click)="closeModal()">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="input-wrapper light fill" *ngIf="more">
+        <textarea
+          placeholder="{{ 'feed-add-component.title-label' | translate }}"
+          autosize
+          maxRows="3"
+          name="title"
+          #title="ngModel"
+          [(ngModel)]="feed.title"
+        ></textarea>
+      </div>
+
+      <div class="input-wrapper light fill" *ngIf="more">
+        <textarea
+          placeholder="{{ 'feed-add-component.subtitle-label' | translate }}"
+          autosize
+          maxRows="3"
+          name="subtitle"
+          #subtitle="ngModel"
+          [(ngModel)]="feed.subtitle"
+        ></textarea>
+      </div>
+
+      <div class="input-wrapper light fill">
+        <div class="row">
+          <div class="prefix"><span class="lnr lnr-bubble"></span></div>
+          <textarea
+            placeholder="{{ 'feed-add-component.content-label' | translate }}"
+            autosize
+            maxRows="3"
+            name="content"
+            #content="ngModel"
+            [(ngModel)]="feed.content"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- image section -->
+      <div class="image-content" *ngIf="images.length > 1">
+        <div class="images">
+          <div
+            class="image-item"
+            *ngFor="let item of images; let i = index"
+            [image-loader]="item"
+            (click)="doMoreOnImage(item, i)"
+          ></div>
+        </div>
+      </div>
+
+      <!-- action section -->
+      <div class="actions mt10">
+        <div class="start">
+          <ion-button fill="clear" *ngFor="let item of feedOptions" (click)="item.click()">
+            <ion-icon src="assets/icons/{{ item.icon }}.svg"></ion-icon>
+          </ion-button>
+        </div>
+        <div class="end">
+          <ion-button size="small" shape="round" (click)="save()">
+            {{ 'feed-add-component.post-button' | translate }}
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<app-spinner *ngIf="loading"></app-spinner>
+
+<!-- required for browser file upload -->
+<input hidden #fileInputButton type="file" (change)="detectFiles($event)" multiple />

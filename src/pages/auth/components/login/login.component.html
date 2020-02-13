@@ -1,0 +1,65 @@
+<ion-content scrollX="false" scrollY="false" class="ion-padding">
+  <div class="content-wrapper center">
+    <!-- info section when user has verified their account -->
+    <div class="info" *ngIf="emailVerified">
+      <ion-icon src="assets/icons/info.svg"></ion-icon><span>{{ 'login-component.email-verified' | translate }}</span>
+    </div>
+
+    <div class="title">{{ 'login-component.title' | translate }}</div>
+
+    <!-- start form -->
+    <form class="form" #form="ngForm">
+      <form-field fill="true" color="medium">
+        <ion-icon prefix src="assets/icons/user.svg"></ion-icon>
+        <ion-input inputRef name="email" placeholder="Email" [(ngModel)]="model.email" required email></ion-input>
+      </form-field>
+
+      <form-field fill="true" color="medium">
+        <ion-icon prefix src="assets/icons/lock.svg"></ion-icon>
+        <ion-input type="password" name="password" required inputRef placeholder="Password" [(ngModel)]="model.password"></ion-input>
+      </form-field>
+    </form>
+
+    <div class="remember-me">
+      <ion-checkbox name="rememberMe" [(ngModel)]="rememberMe"></ion-checkbox>
+      <div class="remember-me-text">{{ 'login-component.remember-label' | translate }}</div>
+    </div>
+    <!-- end form -->
+
+    <!-- signin button -->
+    <ion-button class="no-shrink" expand="full" shape="round" (click)="login()" [btnStatus]="loading" slot="end">
+      {{ 'auth-component.login-button' | translate }}
+      <ion-icon src="assets/icons/chevron-right.svg"></ion-icon>
+    </ion-button>
+    <!-- end sign in button -->
+
+    <!-- start forgot password -->
+    <div class="terms">
+      {{ 'auth-component.forgot-text-1' | translate }}
+      <a (click)="goto(routes.forgot)" class="strong">
+        {{ 'auth-component.forgot-text-2' | translate }}
+      </a>
+    </div>
+    <!-- end forgot password -->
+
+    <p class="text-line-through-background"><span>or</span></p>
+
+    <!-- start social buttons -->
+    <div class="social-buttons">
+      <ion-button shape="round" color="google" [btnStatus]="gplusLoading" (click)="socialLoginIn(provider.google)">
+        {{ 'auth-component.google' | translate }}</ion-button
+      >
+      <ion-button shape="round" color="facebook" [btnStatus]="fbLoading" (click)="socialLoginIn(provider.facebook)">
+        {{ 'auth-component.facebook' | translate }}</ion-button
+      >
+    </div>
+    <!-- end social buttons -->
+
+    <!-- start get an account -->
+    <div class="terms">
+      {{ 'login-component.dont-have-account' | translate }}
+      <a (click)="goto(routes.register)" class="strong">{{ 'login-component.register' | translate }}</a>
+    </div>
+    <!-- end get an account -->
+  </div>
+</ion-content>

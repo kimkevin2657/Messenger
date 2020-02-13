@@ -1,0 +1,49 @@
+<ng-container *ngIf="feed && me">
+  <div class="image-content" *ngIf="feed.images && feed.images.length > 0" [image-loader]="feed.images[currentIndex]">
+    <div class="left" *ngIf="feed.images && feed.images.length > 1">
+      <ion-icon mode="ios" name="arrow-back" (click)="back()"></ion-icon>
+    </div>
+    <div class="center" (click)="clicked('detail')"></div>
+    <div class="right" *ngIf="feed.images && feed.images.length > 1">
+      <ion-icon mode="ios" name="arrow-forward" (click)="forward()"></ion-icon>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content-header">
+      <div class="feed-info">
+        <div class="subtitle">{{ (feed.content | slice: 0:60) || ('feed-component.no-post-content' | translate) }}</div>
+      </div>
+      <div class="option" *ngIf="feed.user.uid === me.uid">
+        <ion-button fill="clear" size="small" (click)="clicked('more')">
+          <ion-icon name="more"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <div class="author">
+      <div class="image" [image-loader]="feed.user.photoURL" (click)="clicked('profile')"></div>
+      <div class="details">
+        <div class="name">{{ feed.user.displayName }}</div>
+        <div class="publish-date">{{ feed?.createdAt?.toDate() | amTimeAgo }}</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <ion-button color="medium" fill="clear" size="small" (click)="clicked('like')">
+        <ion-icon [name]="feed.userLiked ? 'heart' : 'heart-empty'" [color]="feed.userLiked ? 'tertiary' : 'medium'">
+        </ion-icon>
+        <small>{{ feed?.likes?.length > 0 ? feed.likes.length : '' }}</small>
+      </ion-button>
+
+      <ion-button color="medium" fill="clear" size="small" (click)="clicked('comment')">
+        <ion-icon name="chatboxes"></ion-icon>
+        <small>{{ feed?.comments?.length ? feed.comments.length : '' }}</small>
+      </ion-button>
+      <ion-button color="medium" fill="clear" size="small" (click)="clicked('share')">
+        <ion-icon name="share-alt"></ion-icon>
+        <small>{{ 'feed-component.share-button' | translate }}</small>
+      </ion-button>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,44 @@
+:host {
+  ion-content {
+    --background: var(--ion-color-light);
+
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 0 -40px;
+      padding-top: 50px;
+
+      &.center {
+        justify-content: center;
+        align-self: center;
+      }
+
+      .title {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .subtitle {
+        font-size: 14px;
+        color: var(--ion-color-medium);
+      }
+      .info {
+        text-align: center;
+        margin: 10px;
+        border-top: 1px solid var(--ion-color-primary-tint);
+        border-bottom: 1px solid var(--ion-color-primary-tint);
+        font-size: 15px;
+        padding: 20px;
+      }
+
+      .terms {
+        text-align: center;
+        margin: 10px 0 0;
+        font-size: 13px;
+      }
+    }
+  }
+}

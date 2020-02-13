@@ -1,0 +1,44 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button fill="clear"
+      size="small"
+      color="medium"
+      (click)="goto(routes.login)">
+      <ion-icon mode="md"
+        src="assets/icons/x.svg"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content scrollX="false"
+  scrollY="false">
+  <div class="content-wrapper">
+    <div class="header no-border has-toolbar">
+      <div class="title">
+        {{'deactivated-account-component.title' | translate}}
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="content-scroll"
+        *ngIf="currentUser">
+        <div class="user-wrapper">
+
+          <p class="subtitle">{{'deactivated-account-component.subtitle' | translate}}
+            <br>{{currentUser.displayName}}
+          </p>
+          <div class="img"
+            [image-loader]="currentUser.photoURL"></div>
+        </div>
+        <p class="info"> {{'deactivated-account-component.info' | translate}} </p>
+
+        <ion-button expand="block"
+          shape="round"
+          color="secondary"
+          (click)="reactivate()">
+          {{'deactivated-account-component.reactivate-button' | translate}}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -70,7 +70,7 @@
     "firebase": "^7.2.0",
     "hammerjs": "^2.0.8",
     "libphonenumber-js": "^1.7.25",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "moment": "^2.24.0",
     "mx.ferreyra.callnumber": "0.0.2",
     "ngx-autosize": "^1.6.4",
